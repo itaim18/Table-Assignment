@@ -20,7 +20,7 @@ const newPerson = () => {
 };
 
 export function makeData(len: number) {
-  return range(len).map((d) => {
+  return range(len).map(() => {
     return {
       ...newPerson(),
     };
