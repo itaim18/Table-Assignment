@@ -1,6 +1,5 @@
 import TableCell from "@mui/material/TableCell";
 import { useState, useId } from "react";
-import { generateTemplate } from "./BasicTable";
 
 export const MyTableCell = ({ cell, type, onUpdate, row, columns }: any) => {
   //set the state with the initial value
