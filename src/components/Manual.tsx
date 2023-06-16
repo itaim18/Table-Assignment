@@ -25,6 +25,21 @@ const Manual = () => {
         You can also edit the Table's cells,
         <br /> and add rows & columns using the "data.json"
       </p>
+      <a
+        target="_blank"
+        href="https://github.com/itaim18/Table-Assignment"
+        style={{ color: "black" }}
+      >
+        <img
+          src="gh.svg"
+          style={{
+            stroke: "white",
+            paddingLeft: "8px",
+            paddingTop: "8px",
+            width: "42px",
+          }}
+        />
+      </a>
     </div>
   );
 };
