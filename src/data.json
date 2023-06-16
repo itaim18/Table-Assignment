@@ -1,0 +1,35 @@
+{
+  "columns": [
+    {
+      "ordinalNo": 0,
+      "title": "name",
+      "type": "string",
+      "width": 60
+    },
+    {
+      "ordinalNo": 1,
+      "title": "last name",
+      "type": "string",
+      "width": 120
+    },
+    {
+      "ordinalNo": 2,
+      "title": "age",
+      "type": "number",
+      "width": 40
+    },
+    {
+      "ordinalNo": 3,
+      "title": "accepted",
+      "type": "boolean",
+      "width": 40
+    },
+    {
+      "ordinalNo": 4,
+      "title": "email",
+      "type": "string",
+      "width": 160
+    }
+  ],
+  "rows": []
+}
