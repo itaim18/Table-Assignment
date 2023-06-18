@@ -14,11 +14,8 @@ const Manual = () => {
         <p style={{ margin: 0, paddingRight: "12px" }}>
           So, basically you can use the
         </p>
-        <FilterButton />{" "}
-        <p style={{ margin: 0, paddingLeft: "12px" }}>
-          {" "}
-          to filter the columns.
-        </p>
+        <FilterButton />
+        <p style={{ margin: 0, paddingLeft: "12px" }}>to filter the columns.</p>
       </article>
       <p>
         <br />

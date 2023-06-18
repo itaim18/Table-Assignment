@@ -6,8 +6,9 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import CheckIcon from "@mui/icons-material/Check";
 import { useContext } from "react";
 import { FiltersContext } from "../context/FiltersContext";
+import { columns } from "../utils/makeData";
 export default function FilterButton() {
-  const { filters, setFilter, columns }: any = useContext(FiltersContext);
+  const { filters, setFilter }: any = useContext(FiltersContext);
   // built in state that controls the display of the filters menu
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

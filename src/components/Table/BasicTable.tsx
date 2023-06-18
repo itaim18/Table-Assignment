@@ -11,11 +11,22 @@ import { makeData } from "../../utils/makeData";
 import { RowTable } from "./RowTable";
 import { useContext } from "react";
 import { FiltersContext } from "../../context/FiltersContext";
+import { columns } from "../../utils/makeData";
+
 //GENERATETEMPLATE GIVES ME ACCESS TO THE COLUMNS TITLE AND TYPE
 export const generateTemplate = () => {
   const filteredData: any = [];
-  for (const column of data.columns) {
+  for (const column of columns) {
     filteredData.push(columnFilter(column, ["id", "ordinalNo", "width"]));
+  }
+  //filteredData=[{tile:"age",type:"number"},{...},{...}]
+
+  return filteredData;
+};
+export const generateSecTemplate = () => {
+  const filteredData: any = [];
+  for (const column of columns) {
+    filteredData.push(columnFilter(column, ["ordinalNo", "width"]));
   }
   //filteredData=[{tile:"age",type:"number"},{...},{...}]
 
@@ -46,17 +57,29 @@ export function createData(rowData: any) {
   return row;
 }
 // if there is real data in "data.json" go over it, otherwise fill with fake data
-export const rows = data.rows.length > 0 ? [] : makeData(25);
+export const rows: any = data.rows.length > 0 ? [] : makeData(25);
 if (data.rows.length > 0) {
   for (const row in data.rows) {
     rows.push(createData(data.rows[row]));
   }
+}
+export const colsData = generateSecTemplate();
+for (const [key, val] of Object.entries<Record<string, any>>(rows)) {
+  const newRow: any = { id: val.id };
+  for (const { id, title } of colsData) {
+    newRow[id] = val[title];
+  }
+  rows[key] = newRow;
 }
 
 const BasicTable = () => {
   const { filters, columns }: any = useContext(FiltersContext);
   // checks if the filters is filled with all cols(which means the table empty)
   // in this case return this funny gif
+  console.log("====================================");
+  console.log("TableData:{", "columns:", columns, ",data:", rows, "}");
+
+  console.log("====================================");
   if (filters.length === columns.length) {
     return <img src="empty.gif" alt="gif" />;
   }

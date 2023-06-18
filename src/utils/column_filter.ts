@@ -3,11 +3,11 @@
 // on filters
 const columnFilter = (row: any, checks: any) => {
   //always filter the id for its not to be displayed and the rest of filters
-  const checkers = ["id", ...checks];
+  //const checkers = ["id", ...checks];
   const newRow: any = {};
   //for all the fields of rows check if its not there and return it
   for (const [key, value] of Object.entries(row)) {
-    if (!checkers.includes(key)) {
+    if (!checks.includes(key)) {
       newRow[key] = value;
     }
   }

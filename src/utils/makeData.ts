@@ -1,4 +1,6 @@
 import { faker } from "@faker-js/faker";
+import data from "../data.json";
+import Column from "../types/column";
 //GENERAL FUNCTIONS TO GENERATE FAKE DATA
 const range = (len: any) => {
   const arr = [];
@@ -11,9 +13,9 @@ const range = (len: any) => {
 const newPerson = () => {
   return {
     id: crypto.randomUUID(),
-    name: faker.name.firstName(),
-    "last name": faker.name.lastName(),
-    age: faker.datatype.number(40),
+    name: faker.person.firstName(),
+    "last name": faker.person.lastName(),
+    age: faker.number.int(78),
     accepted: faker.datatype.boolean(),
     email: faker.internet.email(),
   };
@@ -26,3 +28,8 @@ export function makeData(len: number) {
     };
   });
 }
+const columns: Column[] = data.columns.map((column) => ({
+  id: crypto.randomUUID(),
+  ...column,
+}));
+export { columns };

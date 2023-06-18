@@ -1,28 +1,25 @@
 import { useState } from "react";
 import "./App.css";
-import data from "./data.json";
-import Column from "./types/column";
 import BasicTable from "./components/Table/BasicTable";
 import FilterButton from "./components/FilterButton";
 import Manual from "./components/Manual";
 import { FiltersContext } from "./context/FiltersContext";
+import { columns } from "./utils/makeData";
+
 function App() {
   // state for the filters ideally will look something like: ["name","age"]
   const [filters, setFilters] = useState<any>([]);
   //takes the columns and add UUID as id
-  const columns: Column[] = [];
-  for (const column of data.columns) {
-    columns.push({ id: crypto.randomUUID(), ...column });
-  }
+
   //SETFILTER checks if the filter is in the filters and add if it's not, remove if it is
   const setFilter = (checker: string) => {
+    let newFilters = [];
     if (!filters.includes(checker)) {
-      const newFilters = [...filters, checker];
-      setFilters(newFilters);
+      newFilters = [...filters, checker];
     } else {
-      const newFilters = [...filters].filter((a) => a !== checker);
-      setFilters(newFilters);
+      newFilters = [...filters].filter((a) => a !== checker);
     }
+    setFilters(newFilters);
   };
 
   return (
@@ -49,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };

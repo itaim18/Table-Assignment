@@ -16,7 +16,7 @@ export const MyTableCell = ({ cell, type, onUpdate, row, columns }: any) => {
   }
   //find its cell width using the columns and key
   const colWidth = columns.find((col: any) => {
-    return col.title === key;
+    return col.id === key;
   })?.width;
   //returns the type of input
   const inputType =
